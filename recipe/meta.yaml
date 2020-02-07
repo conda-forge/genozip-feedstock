@@ -5,7 +5,7 @@
 package:
   name: genozip
   version: {{ version }}
-
+ 
 source: 
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
   sha256: 4879a195142aaf0c7438fa4d6bd21c1ff50b445d461b16b72dd17139a2f576bd
