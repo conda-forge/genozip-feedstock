@@ -1,4 +1,4 @@
-{% set version = "1.0.36" %}
+{% set version = "1.1.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 47e2039d8139096bfc44c8037ec60f3e4c2dc297d0b19ec91d33b20da0b6627b
+  sha256: 2ba0388023b857b2b88dc0f3aceeef90c2157b7ea61ee23d0f25bd574a763f76
  
 build:
   skip: True  # [win]
@@ -47,6 +47,10 @@ test:
     {% endfor %}
     - which genozip.exe  # [win]
     - genozip --password abc --test test-file.vcf 2>&1  
+
+    extra:
+  recipe-maintainers:
+    - divonlan
   
 about:
   home: https://github.com/divonlan/genozip
@@ -58,14 +62,39 @@ about:
     - LICENSE.commercial.txt
   summary: Compressor for VCF genomic files, up to 5x better than gzip and faster too
   description: |
-    genozip is a compressor for VCF genomic files (it compresses .vcf or .vcf.gz or .vcf.bz2 files). 
+    _genozip_ is a compressor for VCF genomic files (it compresses .vcf or .vcf.gz or .vcf.bz2 files). 
+    
+    It achieves x2 to x5 better compression ratios than gzip because it leverages some properties of the genomic data, such as linkage disequilibrium, to compress better. It is also a lot faster than gzip. 
+    
     It is very easy to use - in fact, if you're familiar with gzip, it works pretty much the same.
-    It achieves x2 to x5 better compression ratios than gzip because it leverages some properties
-    of the genomic data, such as linkage disequilibrium, to compress better. 
-    It is also a lot faster than gzip. 
-    The compression is lossless - the decompressed file is identical to the original file.
-    Contact: info@genozip.com
-
-extra:
-  recipe-maintainers:
-    - divonlan
+        
+    The compression is lossless - the decompressed VCF file is 100% identical to the original VCF file.
+    
+    The command line options are very much similar to gzip, so if you're familiar with these, it works pretty much the same. Try _genozip --help_ to get started.
+    
+    __Commands__:
+    _genozip_   - compress one or more files
+    _genounzip_ - decompress one ore more files
+    _genols_    - show metadata of files or the entire directory
+    _genocat_   - view one or more files
+    
+    Some advanced options:
+    
+    __Concatenating & splitting__: 
+    _genozip_ file1.vcf file2.vcf _-o_ concat.vcf.genozip
+    _genounzip_ concat.vcf.genozip _-O_ 
+    
+    __MD5 hash__:
+    _genozip --md5_ file.vcf 
+    _genols --md5_ file.vcf.genozip
+    Note: The md5 hash is automatically verified during _genounzip_
+    
+    __Encryption__: 
+    _genozip --password_ abc file.vcf
+    
+    Feedback and bug reports: _bugs@genozip.com_
+    Genozip is free for non-commercial use. For a commercial license, please contact _sales@genozip.com_
+    
+    Usage is subject to terms and conditions, see the LICENSE.commercial.txt and LICENSE.non-commercial.txt file.
+    
+    THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
