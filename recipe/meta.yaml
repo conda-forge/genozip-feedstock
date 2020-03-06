@@ -1,4 +1,4 @@
-{% set version = "2.0.7" %}
+{% set version = "2.0.8" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: b2188fb818f1114700c607c2196b937e26285a660bb751e7948e2c0c81d99996
+  sha256: 3df21891e3f2b91fd512d3fead3053a70747a6b55940d627d18cb87afee5b12d
  
 build:
   skip: True  # [win]
@@ -48,10 +48,6 @@ test:
     - which genozip.exe  # [win]
     - genozip --password abc --test test-file.vcf 2>&1  
 
-extra:
-  recipe-maintainers:
-    - divonlan
-   
 about:
   home: https://github.com/divonlan/genozip
   dev_url: https://github.com/divonlan/genozip
@@ -104,3 +100,7 @@ about:
     Usage is subject to terms and conditions. The license can be viewed with genozip --license
     
     THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+extra:
+  recipe-maintainers:
+    - divonlan
