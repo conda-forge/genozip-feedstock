@@ -1,4 +1,4 @@
-{% set version = "2.0.6" %}
+{% set version = "2.0.7" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: ca62fdea92962121f62faca8e9b67078a0b04c2a37be74bba081844d0305e34b
+  sha256: b2188fb818f1114700c607c2196b937e26285a660bb751e7948e2c0c81d99996
  
 build:
   skip: True  # [win]
@@ -48,7 +48,7 @@ test:
     - which genozip.exe  # [win]
     - genozip --password abc --test test-file.vcf 2>&1  
 
-    extra:
+extra:
   recipe-maintainers:
     - divonlan
    
@@ -62,4 +62,45 @@ about:
     - LICENSE.commercial.txt
   summary: Compressor for VCF genomic files, up to 5x better than gzip and faster too
   description: |
-test test
+    genozip
+    genozip is a compressor for VCF genomic files (it compresses .vcf or .vcf.gz or .vcf.bz2 files).
+    
+    It achieves x2 to x5 better compression ratios than gzip because it leverages some properties of the genomic data, such as linkage disequilibrium, to compress better. It is also a lot faster than gzip.
+    
+    The compression is lossless - the decompressed VCF file is 100% identical to the original VCF file.
+    
+    The command line options are similar to gzip and bcftools, so if you're familiar with these, it works pretty much the same. To get started, try: genozip --help
+    
+    Commands: 
+    genozip   - compress one or more files 
+    genounzip - decompress one or more files 
+    genols    - show metadata of files or the entire directory 
+    genocat   - view one or more files 
+    
+    Some advanced options:
+    
+    Lookups:
+    genocat -r ^Y,MT file1.vcf       -- displays all chromosomes except Y and MT
+    genocat -r -10000 file1.vcf      -- displays positions up to 10000
+    genocat -s SMPL1,SMPL2 file1.vcf -- displays 2 samples
+    Note: there is no need for a separate indexing step or index file
+    
+    Concatenating & splitting:
+    genozip file1.vcf file2.vcf -o concat.vcf.genozip 
+    genounzip concat.vcf.genozip -O 
+    
+    Viewing the MD5 of the VCF file:
+    genozip file.vcf --md5 
+    genols file.vcf.genozip --md5 
+    Note: the MD5 is always calculated under the hood in genozip, and automatically verified during genounzip 
+    
+    Encryption:
+    genozip file.vcf --password abc 
+    
+    Feature requests and bug reports: bugs@genozip.com 
+    
+    genozip is free for non-commercial use. For a commercial license, please contact sales@genozip.com 
+    
+    Usage is subject to terms and conditions. The license can be viewed with genozip --license
+    
+    THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
