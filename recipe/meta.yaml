@@ -1,4 +1,4 @@
-{% set version = "5.0.1" %}
+{% set version = "5.0.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 26fb138a4a96185de784ca25bd947b1df62385bef8e4b0e1609ee640fa6ad6a9
+  sha256: 8ebaf4723f9b639b608992617a0c9288c15abd26d754ec9e0dffa3a4378b31df
  
 build:
   skip: True  # [win]
@@ -109,5 +109,3 @@ about:
 extra:
   recipe-maintainers:
     - divonlan
-  identifiers:
-    - doi.org/10.1093/bioinformatics/btaa290
