@@ -1,4 +1,4 @@
-{% set version = "5.0.3" %}
+{% set version = "5.0.5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 8e6e32ed9fcd9660fac1f3a18ed76ab4c850e7cf2753257c035e908a3511b594
+  sha256: 719be54e3040a88302ea328fc40fff548c9c9eba0064f08b8a0ad7e5590ab771
  
 build:
   skip: True  # [win]
@@ -38,11 +38,7 @@ test:
       "genocat",
       "genols"
     ] %}
-    {% for executable in genozip_executables %}
-    - genozip
-    {% endfor %}
-    - which genozip.exe  # [win]
-    - genozip --password abc --test --quiet test-file.vcf 2>&1  
+    - genozip --help
 
 about:
   home: https://github.com/divonlan/genozip
