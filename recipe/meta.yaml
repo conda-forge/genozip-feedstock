@@ -1,4 +1,4 @@
-{% set version = "5.0.5" %}
+{% set version = "5.0.7" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 719be54e3040a88302ea328fc40fff548c9c9eba0064f08b8a0ad7e5590ab771
+  sha256: 0db43e8ccff2f20ae4525f888168376781e60868eadfbefbcdfc943b7cc1d31e
  
 build:
   skip: True  # [win]
@@ -50,7 +50,10 @@ about:
     - LICENSE.commercial.txt
   summary: Compressor for genomic files (VCF/BCF, SAM/BAM, fastq, fasta, GVF, 23andMe), up to 5x better than gzip and faster too
   description: |
-    genozip
+    genozip 
+    
+    (also available on Conda and Docker Hub)
+    
     genozip is a compressor for genomic files - it compresses VCF/BCF, SAM/BAM, fastq, fasta, GVF and 23andMe files. If can even compress them if they are already compressed with .gz .bz2 .xz (for full list of supported file types see 'genozip --input --help').
     
     It achieves x2 to x5 better compression ratios than gzip because it leverages some properties specific to genomic data to compress better. It is also a lot faster than gzip.
