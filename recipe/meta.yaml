@@ -1,4 +1,4 @@
-{% set version = "5.0.9" %}
+{% set version = "6.0.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 705bfd34202808f261a9ef71ec8e83ce256f94ccf36991d2a4b66ec0845fe5b7
+  sha256: 879c328a8efe3928314274e586ecb636743c5efa74b2d0d0aac5198ecce40087
  
 build:
   skip: True  # [win]
@@ -77,8 +77,8 @@ about:
     Note: there is no need for a separate indexing step or index file
     
     Concatenating & splitting:
-    genozip file1.vcf file2.vcf -o concat.vcf.genozip 
-    genounzip concat.vcf.genozip -O 
+    genozip file1.vcf file2.vcf -o bound.vcf.genozip 
+    genounzip bound.vcf.genozip -O 
     
     Calculating the MD5:
     genozip file.vcf --md5 
