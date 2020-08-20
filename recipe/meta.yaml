@@ -1,4 +1,4 @@
-{% set version = "6.0.8" %}
+{% set version = "6.0.9" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 046a2b14ad798f9b8ddb4fcd30b26206121c3853340c009b972e7893ba7d9ea5
+  sha256: 08902281ceaf39ebb09ba58f86eb6b6003b045840800915eb1f5d52b861c86dd
  
 build:
   skip: True  # [win]
@@ -54,7 +54,7 @@ about:
     
     (also available on Conda and Docker Hub)
     
-    genozip is a compressor for genomic files - it compresses VCF/BCF, SAM/BAM/CRAM, FASTQ, FASTA, GVF and 23andMe files. If can even compress them if they are already compressed with .gz .bz2 .xz (for full list of supported file types see 'genozip --input --help').
+    genozip is a compressor for genomic files - it compresses FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF and 23andMe files. If can even compress them if they are already compressed with .gz .bz2 .xz (for full list of supported file types see 'genozip --input --help').
     
     It achieves x2 to x5 better compression ratios than gzip because it leverages some properties specific to genomic data to compress better. It is also a lot faster than gzip.
     
@@ -111,13 +111,13 @@ about:
     genozip *.fq.gz -o all-samples.fq.genozip <-- binds all .fq.gz files in the current directory
     genounzip my-project.fq.genozip --unbind 
     
-    Even better compression, with some minor modifications of the data (therefore not lossless, see --help for details):
+    Compressing even better, with some minor modifications of the data (therefore not lossless, see --help for details):
     genozip file.bam --optimize 
     
-    Faster compression, sacrificing a bit of compression ratio:
+    Compressing faster, sacrificing a bit of compression ratio:
     genozip file.bam --fast 
     
-    Encryption (256 bit AES):
+    Encrypting (256 bit AES):
     genozip file.vcf --password abc 
     genounzip file.vcf.genozip --password abc 
     
@@ -125,7 +125,7 @@ about:
     genozip file.vcf --md5 
     genounzip file.vcf.genozip --md5 
     
-    Compress and then verify that the compressed file decompresses correctly:
+    Compressing and then verifying that the compressed file decompresses correctly:
     genozip file.vcf --test 
     
     Citing
