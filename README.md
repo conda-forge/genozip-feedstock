@@ -3,9 +3,11 @@ genozip
   
 (also available on **Conda** and **Docker Hub**)  
   
-**genozip** is a compressor for genomic files - it compresses VCF/BCF, SAM/BAM/CRAM, FASTQ, FASTA, GVF and 23andMe files. If can even compress them if they are already compressed with .gz .bz2 .xz (for full list of supported file types see 'genozip --input --help').  
+**genozip** is a compressor for genomic files - it compresses FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF and 23andMe files. If can even compress them if they are already compressed with .gz .bz2 .xz (for full list of supported file types see 'genozip --input --help').  
   
 It achieves x2 to x5 better compression ratios than gzip because it leverages some properties specific to genomic data to compress better. It is also a lot faster than gzip.  
+  
+**Sign up** to receive low-frequency updates related to Genozip: https://tinyurl.com/genozip  
   
 The compression is lossless - the decompressed file is 100% identical to the original file.  
 Notes:   
@@ -29,7 +31,7 @@ The command line options are similar to gzip and samtools/bcftools, so if you ar
 **genozip** --reference *myfasta.ref.genozip* mysample1.fq mysample2.fq mysample3.fq  
 **genozip** --reference *myfasta.ref.genozip* mysample.bam  
 **genozip** --reference *myfasta.ref.genozip* mysamples.vcf.gz  
-**genozip** --reference *myfasta.ref.genozip* *    <--- compresses all files in the current directory  
+**genozip** --reference *myfasta.ref.genozip* *     ←compresses all files in the current directory  
   
 Notes:  
 1. genozip can compress with or without a reference - using a reference often achieves much better compression  
@@ -47,26 +49,27 @@ Notes:
 my-sam-outputing-method | **genozip** - --input sam --output *mysample.sam.genozip*  
   
 ***Lookups:***  
-**genocat** --regions ^Y,MT *mysamples.vcf.genozip*  <-- displays all chromosomes except Y and MT  
-**genocat** --regions -10000 *mysample.sam.genozip*  <-- displays positions up to 10000  
-**genocat** --samples SMPL1,SMPL2 *mysamples.vcf.genozip*  <-- displays 2 samples  
-**genocat** --grep August-10 *myfasta.fa.genozip*  <-- displays contigs/reads that have "August-10" in the header  
+**genocat** --regions chr1:10000-20000 *mysamples.vcf.genozip*   ←displays a specific region  
+**genocat** --regions ^Y,MT *mysamples.vcf.genozip*   ←displays all chromosomes except Y and MT  
+**genocat** --regions -10000 *mysample.sam.genozip*   ←displays positions up to 10000  
+**genocat** --samples SMPL1,SMPL2 *mysamples.vcf.genozip*   ←displays 2 samples  
+**genocat** --grep August-10 *myfasta.fa.genozip*   ←displays contigs/reads that have "August-10" in the header  
 Notes:  
 1. --regions works with VCF, SAM/BAM, FASTA ; --grep works with FASTQ, FASTA ; --samples works with VCF  
 2. There is no need for a separate indexing step or index file  
 3. Many more options (see --help for full list): --no-header ; --header-only ; --sequential ; --list-chroms ; --drop-genotypes ; --GT-only  
   
 ***Binding mutiple files into a single genozip file & unbinding:***  
-**genozip** **.fq.gz* -o *all-samples.fq.genozip* <-- binds all .fq.gz files in the current directory  
+**genozip** **.fq.gz* -o *all-samples.fq.genozip*   ←binds all .fq.gz files in the current directory  
 **genounzip** *my-project.fq.genozip* --unbind   
   
-***Even better compression, with some minor modifications of the data (therefore not lossless, see --help for details):***  
+***Compressing even better, with some minor modifications of the data (therefore not lossless, see --help for details):***  
 **genozip** *file.bam* --optimize   
   
-***Faster compression, sacrificing a bit of compression ratio:***  
+***Compressing faster, sacrificing a bit of compression ratio:***  
 **genozip** *file.bam* --fast   
   
-***Encryption (256 bit AES):***  
+***Encrypting (256 bit AES):***  
 **genozip** *file.vcf* --password *abc*   
 **genounzip** *file.vcf.genozip* --password *abc*   
   
@@ -74,13 +77,13 @@ Notes:
 **genozip** *file.vcf* --md5   
 **genounzip** *file.vcf.genozip* --md5   
   
-***Compress and then verify that the compressed file decompresses correctly:***  
+***Compressing and then verifying that the compressed file decompresses correctly:***  
 **genozip** *file.vcf* --test   
   
 ***Citing***  
 Do you find genozip useful? Please support continued development by citing:  
-Lan, D., et al. (2020) *Bioinformatics*, 36, 4091–4092, https://doi.org/10.1093/bioinformatics/btaa290  
-  
+Lan, D., et al. *Bioinformatics*, 36, 4091–4092, July 2020, https://doi.org/10.1093/bioinformatics/btaa290  
+<br> 
 Feature requests and bug reports: **bugs@genozip.com**   
   
 **genozip** is free for non-commercial use. For a commercial license, please contact **sales@genozip.com**   
