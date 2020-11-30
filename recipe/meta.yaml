@@ -1,4 +1,4 @@
-{% set version = "9.0.0" %}
+{% set version = "9.0.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 661523d9048ba3a36612b359cc2dedf196b3379dd2d8289ae83879126a606976
+  sha256: 2a09f67a3cbead07f423ef6f2a4e835d3380a784765700ed7b672c4dc42760b4
  
 build:
   skip: True  # [win]
@@ -54,6 +54,105 @@ about:
     - LICENSE.commercial.txt
   summary: Compressor for genomic files (FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF, 23andMe), up to 5x better than gzip and faster too
   description: |
+    genozip
+    
+    (available on Conda, Docker Hub and https://github.com/divonlan/genozip)
+    
+    genozip is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF and 23andMe files. If can even compress them if they are already compressed with .gz .bz2 .xz (for full list of supported file types see 'genozip --help=input').
+    
+    It achieves x2 to x5 better compression ratios than gzip because it leverages some properties specific to genomic data to compress better. It is also a lot faster than gzip.
+    
+    Sign up to receive low-frequency updates related to Genozip: https://tinyurl.com/genozip
+    
+    The compression is lossless - the decompressed file is 100% identical to the original file.
+    Notes: 
+    1. Losslessness is relative to the underlying textual file - for example, when compressing a .bam or a .fq.gz file - the losslessness is relative to the underlying uncompressed BAM or FASTQ file respectively
+    2. The one exception is when using the --optimize option which is lossy (see --help for details)
+    
+    The command line options are similar to gzip and samtools/bcftools, so if you are familiar with these, it works pretty much the same. To get started, try: genozip --help
+    
+    Commands: 
+    genozip   - compress one or more files 
+    genounzip - decompress one or more files 
+    genols    - show metadata of one or more files or the entire directory 
+    genocat   - view one or more files 
+    
+    Some examples:
+    
+    Creating a reference file:
+    genozip --make-reference myfasta.fa
+    
+    Compressing a FASTQ, SAM/BAM or VCF file(s) with a reference:
+    genozip --reference myfasta.ref.genozip mysample1.fq mysample2.fq mysample3.fq
+    genozip --reference myfasta.ref.genozip mysample.bam
+    genozip --reference myfasta.ref.genozip mysamples.vcf.gz
+    genozip --reference myfasta.ref.genozip *     ←compresses all files in the current directory
+    
+    Notes:
+    1. genozip can compress with or without a reference - using a reference achieves much better compression when compressing FASTQ or unaligned SAM/BAM, and modestly better compression in other cases
+    2. SAM/BAM - compression of aligned or unaligned SAM/BAM files is possible. Sorting makes no difference
+    3. Long reads - compression of long reads (Pac Bio / Nanopore) achieves signficantly better results when compressing an aligned BAM vs an unaligned BAM or FASTQ
+    4. Compression of CRAM (but not SAM or BAM) files requires samtools to be installed
+    5. Use --REFERENCE instead of --reference to store the relevant parts of the reference file as part of the compressed file itself, which will then allow decompression with genounzip without need of the reference file.
+    
+    Compressing and uncompressing paired-end reads with --pair - better than compressing FASTQs individually
+    genozip --reference myfasta.ref.genozip --pair mysample-R1.fastq.gz mysample-R2.fastq.gz
+    genounzip --reference myfasta.ref.genozip --unbind mysample-R1+2.fastq.genozip
+    
+    Using genozip in a pipline:
+    genocat mysample.sam.genozip | samtools - .....
+    my-sam-outputing-method | genozip - --input sam --output mysample.sam.genozip
+    
+    Lookups:
+    genocat --regions chr1:10000-20000 mysamples.vcf.genozip   ←displays a specific region
+    genocat --regions ^Y,MT mysamples.vcf.genozip   ←displays all chromosomes except Y and MT
+    genocat --regions -10000 mysample.sam.genozip   ←displays positions up to 10000
+    genocat --samples SMPL1,SMPL2 mysamples.vcf.genozip   ←displays 2 samples
+    genocat --grep August-10 myfasta.fa.genozip   ←displays contigs/reads that have "August-10" in the header
+    Notes:
+    1. --regions works with VCF, SAM/BAM, FASTA, 23andMe, GVF and reference files ; --grep works with FASTQ, FASTA ; --samples works with VCF
+    2. There is no need for a separate indexing step or index file
+    3. Many more options (see --help for full list): --no-header ; --header-only ; --sequential ; --list-chroms ; --drop-genotypes ; --GT-only
+    
+    Binding mutiple files into a single genozip file and unbinding:
+    genozip *.fq.gz -o all-samples.fq.genozip   ←binds all .fq.gz files in the current directory
+    genounzip my-project.fq.genozip --unbind 
+    
+    Compressing even better, with some minor modifications of the data (therefore not lossless, see --help for details):
+    genozip file.bam --optimize 
+    
+    Compressing faster, sacrificing a bit of compression ratio:
+    genozip file.bam --fast 
+    
+    Encrypting (256 bit AES):
+    genozip file.vcf --password abc 
+    genounzip file.vcf.genozip --password abc 
+    
+    Converting SAM/BAM to FASTQ:
+    genounzip file.bam.genozip --fastq
+    
+    Converting 23andMe to VCF:
+    genounzip genome_mydata-Full.txt.genozip --vcf -e GRCh37.ref.genozip
+    
+    Calculating the MD5 of the underlying textual file (also included in --test):
+    genozip file.vcf --md5 
+    genounzip file.vcf.genozip --md5 
+    genols file.vcf.genozip
+    
+    Compressing and then verifying that the compressed file decompresses correctly:
+    genozip file.vcf --test 
+    
+    Citing
+    Do you find genozip useful? Please support continued development by citing:
+    Lan, D., et al. Bioinformatics, 36, 4091–4092, July 2020, https://doi.org/10.1093/bioinformatics/btaa290
+     
+    Feature requests and bug reports: bugs@genozip.com 
+    
+    genozip is free for non-commercial use. For a commercial license, please contact sales@genozip.com 
+    
+    Usage is subject to terms and conditions. The non-commercial license can be viewed with genozip --license
+    
+    THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 extra:
   recipe-maintainers:
