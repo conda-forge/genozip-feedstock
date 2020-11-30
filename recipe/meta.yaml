@@ -1,4 +1,4 @@
-{% set version = "9.0.2" %}
+{% set version = "9.0.3" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 56285a9cb706c32cc16f4be87f09d7e184ac6e4b966c17f66e9a25b6ccbc6d4c
+  sha256: fe786dbdeb77be0bf18a3446a2a820b8c2254cd006f1a101d176be3529e602e3
  
 build:
   skip: True  # [win]
@@ -22,16 +22,13 @@ requirements:
     - {{posix}}sed               # [win]
     - {{posix}}coreutils         # [win]
     - bzip2
-    - libdeflate
   host:
     - {{native}}gcc-libs         # [win]
     - bzip2
-    - libdeflate
   run:
     - {{native}}gcc-libs         # [win]
     - bzip2
     - curl
-    - libdeflate
 
 test:
 
