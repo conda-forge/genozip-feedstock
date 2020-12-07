@@ -1,4 +1,4 @@
-{% set version = "9.0.10" %}
+{% set version = "9.0.11" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: fe66e81e86bef6d8f66ab9b0d432df3ab22657c3260479616321a97bf8c65968
+  sha256: dbd4924ce78fb7593daacd754d0b1ece8a58c79cbcd3a695f42545a7554129b5
  
 build:
   skip: True  # [win]
@@ -55,9 +55,9 @@ about:
     
     (available on Conda, Docker Hub and https://github.com/divonlan/genozip)
     
-    Genozip is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF and 23andMe files. If can even compress them if they are already compressed with .gz .bz2 .xz (for full list of supported file types see 'genozip --help=input').
+    Genozip is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF and 23andMe files. It can even compress them if they are already compressed with .gz .bz2 .xz (for full list of supported file types see 'genozip --help=input').
     
-    It achieves x2 to x5 better compression ratios than gzip because it leverages some properties specific to genomic data to compress better. It is also a lot faster than gzip.
+    The compression ratio depends on the data being compressed, and you can usually expect about a 1.5-3X ratio when compressing .bam, 2X-5X for .fastq.gz files (i.e. compressing already-compressed files), and up to 200X when compressing an uncompressed high-sample-count .vcf file with only GT data.
     
     Sign up to receive low-frequency updates related to Genozip: https://tinyurl.com/genozip
     
@@ -100,16 +100,17 @@ about:
     genocat mysample.sam.genozip | samtools - .....
     my-sam-outputing-method | genozip - --input sam --output mysample.sam.genozip
     
-    Lookups:
+    Lookups, downsampling and other subsets:
     genocat --regions chr1:10000-20000 mysamples.vcf.genozip   ←displays a specific region
-    genocat --regions ^Y,MT mysamples.vcf.genozip   ←displays all chromosomes except Y and MT
-    genocat --regions -10000 mysample.sam.genozip   ←displays positions up to 10000
+    genocat --regions ^Y,MT mysample.bam.genozip   ←displays all alignments except Y and MT contigs
+    genocat --regions chrM GRCh38.fa.genozip   ←displays the sequence of chrM
     genocat --samples SMPL1,SMPL2 mysamples.vcf.genozip   ←displays 2 samples
-    genocat --grep August-10 myfasta.fa.genozip   ←displays contigs/reads that have "August-10" in the header
+    genocat --grep 1101:2392 myreads.fq.genozip   ←displays reads that have "1101:2392" anywhere in the description
+    genocat --downsample 10 mysample.fq.genozip   ←displays 1 in 10 reads
     Notes:
-    1. --regions works with VCF, SAM/BAM, FASTA, 23andMe, GVF and reference files ; --grep works with FASTQ, FASTA ; --samples works with VCF
+    1. --regions works with VCF, SAM/BAM, FASTA, 23andMe, GVF and reference files ; --grep works with FASTQ, FASTA ; --samples works with VCF ; --downsample works with all types
     2. There is no need for a separate indexing step or index file
-    3. Many more options (see --help for full list): --no-header ; --header-only ; --sequential ; --list-chroms ; --drop-genotypes ; --GT-only
+    3. Many more options (see --help for full list): --no-header ; --header-only ; --header-one ; --sequential ; --list-chroms ; --drop-genotypes ; --GT-only
     
     Binding mutiple files into a single genozip file and unbinding:
     genozip *.fq.gz -o all-samples.fq.genozip   ←binds all .fq.gz files in the current directory
@@ -130,6 +131,9 @@ about:
     
     Converting 23andMe to VCF:
     genounzip genome_mydata-Full.txt.genozip --vcf -e GRCh37.ref.genozip
+    
+    Generate a samtools/bcftools index file when uncompressing:
+    genounzip file.bam.genozip --index
     
     Calculating the MD5 of the underlying textual file (also included in --test):
     genozip file.vcf --md5 
