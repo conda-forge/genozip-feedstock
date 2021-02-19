@@ -1,9 +1,9 @@
 Genozip
 =======  
   
-(available on **Conda**, **Docker Hub** and https://github.com/divonlan/genozip)  
+(available on **Conda**, **Docker Hub** and https://github.com/divonlan/genozip ; Documentation: http://genozip.com)  
   
-**Genozip** is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF and 23andMe files. It can even compress them if they are already compressed with .gz .bz2 .xz (for full list of supported file types see 'genozip --help=input').  
+**Genozip** is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF, Phylip and 23andMe files. It can even compress them if they are already compressed with .gz .bz2 .xz (for full list of supported file types see 'genozip --help=input').  
   
 The compression ratio depends on the data being compressed, and you can usually expect about a 1.5-3X ratio when compressing .bam, 2X-5X for .fastq.gz files (i.e. compressing already-compressed files), and up to 200X when compressing an uncompressed high-sample-count .vcf file with only GT data.  
   
@@ -80,7 +80,7 @@ Notes:
 ***Converting 23andMe to VCF:***  
 **genounzip** *genome_mydata-Full.txt.genozip* --vcf -e GRCh37.ref.genozip  
   
-***Generate a samtools/bcftools index file when uncompressing:***  
+***Generating a samtools/bcftools index file when uncompressing:***  
 **genounzip** *file.bam.genozip* --index  
   
 ***Calculating the MD5 of the underlying textual file (also included in *--test*):***  
