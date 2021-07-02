@@ -1,4 +1,4 @@
-{% set version = "11.0.11" %}
+{% set version = "12.0.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: aaa19c76d07b05610716bf81e357c160950d131d65a5a767b13bae85c9c00390
+  sha256: 68ec6894b5ab645c2a09ac9ce28d017825449b2c818ed07669c60555f7d7229b
  
 build:
   skip: True  # [win]
@@ -42,8 +42,9 @@ test:
     - genozip --help
 
 about:
-  home: https://github.com/divonlan/genozip
+  home: https://genozip.com
   dev_url: https://github.com/divonlan/genozip
+  doc_url: https://genozip.com
   license: CUSTOM
   license_family: OTHER
   license_file: 
@@ -55,7 +56,7 @@ about:
     
     (available on Conda, Docker Hub and https://github.com/divonlan/genozip ; Documentation: http://genozip.com)
     
-    Genozip is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF, PHYLIP, Chain and 23andMe files.
+    Genozip is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF, PHYLIP, Chain, Kraken and 23andMe files.
     
     Citing Do you find Genozip useful? Please cite:
     Lan, D., et al. (2021) Genozip: a universal extensible genomic data compressor. Bioinformatics, https://doi.org/10.1093/bioinformatics/btab102
