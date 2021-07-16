@@ -19,9 +19,9 @@ The compression is **lossless** - the decompressed file is 100% identical to the
   
 The command line options are similar to gzip and samtools/bcftools, so if you are familiar with these, it works pretty much the same. To get started, see: http://genozip.com  
   
-**Genozip** is free for non-commercial use. For a commercial license, please contact **sales@genozip.com**   
+**Genozip** is free for non-commercial use (as defined in the license). For a commercial license, please contact **sales@genozip.com**   
   
-Usage is subject to terms and conditions. The non-commercial license can be viewed on http://genozip.com/license.html  
+Usage is subject to terms and conditions. The license can be viewed on http://genozip.com/license.html  
   
 THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  
 
