@@ -1,4 +1,4 @@
-{% set version = "12.0.8" %}
+{% set version = "12.0.10" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 426e8e61dc3855b0d7a463f8913b32f121ddf234c14f7578647b213dab1039ab
+  sha256: ac13c447ce85619f19ebe3b4d4341a49a4229be20b5c3d336b2ad505aad40abd
  
 build:
   skip: True  # [win]
@@ -53,7 +53,7 @@ about:
   description: |
     Genozip
     
-    (available on Conda, Docker Hub and https://github.com/divonlan/genozip ; Documentation: http://genozip.com)
+    (available on Conda, Docker Hub See: http://genozip.com)
     
     Genozip is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF, PHYLIP, Chain, Kraken and 23andMe files.
     

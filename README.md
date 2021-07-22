@@ -1,7 +1,7 @@
 Genozip
 =======  
   
-(available on **Conda**, **Docker Hub** and https://github.com/divonlan/genozip ; Documentation: http://genozip.com)  
+(available on **Conda**, **Docker Hub** See: http://genozip.com)  
   
 **Genozip** is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF, PHYLIP, Chain, Kraken and 23andMe files.  
   
