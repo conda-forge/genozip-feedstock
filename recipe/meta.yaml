@@ -1,4 +1,4 @@
-{% set version = "12.0.18" %}
+{% set version = "12.0.21" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 022cfb9736c71188d93500769db4ea3bb745b69faa9bbc154c579e57a2a7a4ec
+  sha256: 97e74d7fb3ad4066fb476c79f60431e21baeb98262d6f5350ea4dff395ce1c9e
  
 build:
   skip: True  # [win]
@@ -51,6 +51,9 @@ about:
     - LICENSE.txt
   summary: Compressor for genomic files (FASTQ, BAM, VCF, FASTA and more), up to 5x better than gzip and faster too
   description: |
+    
+    9/Aug/2021 MASTER IS CURRENTLY BROKEN, PLEASE INSTALL FROM https://github.com/divonlan/genozip/releases/latest
+    
     Genozip
     
     (available on Conda, Docker Hub See: https://genozip.com)
