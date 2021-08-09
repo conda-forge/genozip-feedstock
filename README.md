@@ -1,3 +1,6 @@
+
+9/Aug/2021 MASTER IS CURRENTLY BROKEN, PLEASE INSTALL FROM https://github.com/divonlan/genozip/releases/latest
+
 Genozip
 =======  
   
