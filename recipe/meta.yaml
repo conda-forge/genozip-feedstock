@@ -1,4 +1,4 @@
-{% set version = "12.0.26" %}
+{% set version = "12.0.27" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,25 +8,25 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 1e53deb324234c63fe03715b245011f832d92126966403ea6c3f55a3c412e488
- 
+  sha256: ae1754337ea1077cc37109382682dda41d54c1f3a0c295c6363eec88e57f9c34
+
 build:
-  skip: True  # [win]
+  skip: true  # [win]
   number: 0
 
 requirements:
-  build:    
+  build:
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
-    - {{posix}}make
-    - {{posix}}sed               # [win]
-    - {{posix}}coreutils         # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
     - bzip2
   host:
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
     - bzip2
   run:
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
     - bzip2
     - curl
 
@@ -47,21 +47,21 @@ about:
   doc_url: https://genozip.com
   license: CUSTOM
   license_family: OTHER
-  license_file: 
+  license_file:
     - LICENSE.txt
   summary: Compressor for genomic files (FASTQ, BAM, VCF, FASTA and more), up to 5x better than gzip and faster too
-  description: |
-    
+  description: |4
+
     Genozip
-    
+
     (available on Conda, Docker Hub See: https://genozip.com)
-    
+
     Genozip is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF, PHYLIP, Chain, Kraken and 23andMe files.
-    
+
     Citing Do you find Genozip useful? Please cite:
     Lan, D., et al. (2021) Genozip: a universal extensible genomic data compressor. Bioinformatics, https://doi.org/10.1093/bioinformatics/btab102
     Lan, D., et al. (2020) genozip: a fast and efficient compression tool for VCF files Bioinformatics, 36, 4091–4092, https://doi.org/10.1093/bioinformatics/btaa290
-    
+
      
     Typically, a 2X-5X improvement over the existing compression is achieved when compressing already-compressed files like .fastq.gz .bam vcf.gz and much higher ratios in some other cases. 
      
@@ -69,13 +69,13 @@ about:
      
     The compression is lossless - the decompressed file is 100% identical to the original file (see documentation for exceptions). 
     Sign up to receive low-frequency updates related to Genozip: https://tinyurl.com/genozip
-    
+
     The command line options are similar to gzip and samtools/bcftools, so if you are familiar with these, it works pretty much the same. To get started, see: https://genozip.com
-    
+
     Genozip is free for non-commercial use (as defined in the license). For a commercial license, please contact sales@genozip.com 
-    
+
     Usage is subject to terms and conditions. The license can be viewed on https://genozip.com/license.html
-    
+
     THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 extra:
