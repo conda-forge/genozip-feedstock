@@ -1,4 +1,4 @@
-{% set version = "12.0.34" %}
+{% set version = "12.0.36" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 5451039dcc587a481f8499393eba8b6bf2b28ee5c083d6ff65a41dda100841e3
+  sha256: 627285a2a765b2ca951586545d526ba2d285032492d120d9011d348e9491af4e
  
 build:
   skip: True  # [win]
@@ -21,13 +21,10 @@ requirements:
     - {{posix}}make
     - {{posix}}sed               # [win]
     - {{posix}}coreutils         # [win]
-    - bzip2
   host:
     - {{native}}gcc-libs         # [win]
-    - bzip2
   run:
     - {{native}}gcc-libs         # [win]
-    - bzip2
     - curl
 
 test:
