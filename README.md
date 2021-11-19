@@ -2,9 +2,9 @@
 Genozip
 =======  
   
-Genozip is available on **Conda**. For additional installation options, See: https://genozip.com  
+Genozip is also available on **Conda**. For additional installation options, See: https://genozip.com  
   
-**Genozip** is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, SAM/BAM/CRAM, VCF/BCF, FASTA, GVF, PHYLIP, Chain, Kraken and 23andMe files.  
+**Genozip** is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, BAM, CRAM, VCF, FASTA, GVF, PHYLIP, Chain, Kraken and 23andMe files.  
   
 **Citing** Do you find Genozip useful? Please cite:  
   
