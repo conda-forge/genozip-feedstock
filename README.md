@@ -2,31 +2,21 @@
 Genozip
 =======  
   
-Genozip is also available on **Conda**. For additional installation options, See: https://genozip.com  
+Genozip is also available on **Conda** and binary downloads. For additional installation options, See: https://genozip.com  
   
-**Genozip** is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, BAM, CRAM, VCF, FASTA, GVF, PHYLIP, Chain, Kraken and 23andMe files.  
+**Genozip** is a universal compressor for genomic files - it compresses FASTQ, BAM/CRAM, VCF and many other file formats (including non-genomic files) - see https://genozip.com  
   
-**Citing** Do you find Genozip useful? Please cite:  
+For Illumina data *.bam* and *.fastq.gz* files, the typical gain over gzip is around 4X. For PacBio and Oxford Nanopore data aligned *.bam* files, the gain is typically around 2X. For *.vcf.gz* files, the gain over gzip is typically 3-6X. Here are some examples: https://genozip.com/benchmarks.html.  
   
-Lan, D., et al. (2021) **Genozip: a universal extensible genomic data compressor**. *Bioinformatics*, 37, 2225-2230, https://doi.org/10.1093/bioinformatics/btab102  
-  
-Lan, D., et al. (2020) **genozip: a fast and efficient compression tool for VCF files** *Bioinformatics*, 36, 4091–4092, https://doi.org/10.1093/bioinformatics/btaa290  
-</p>
-<br> 
-Typically, a **2X-5X improvement over the existing compression** is achieved when compressing already-compressed files like .fastq.gz .bam vcf.gz and much higher ratios in some other cases.<br> 
-<br> 
 **Yes**, Genozip can compress already-compressed files (.gz .bz2 .xz .bam .cram).<br> 
 <br> 
 The compression is **lossless** - the decompressed file is 100% identical to the original file (see documentation for exceptions).<br> 
-**Sign up** to receive low-frequency updates related to Genozip: https://tinyurl.com/genozip  
   
-The command line options are similar to gzip and samtools/bcftools, so if you are familiar with these, it works pretty much the same. To get started, see: https://genozip.com  
-  
-**Genozip** is free for non-commercial use (as defined in the license). For a commercial license, please contact **sales@genozip.com**   
+**Genozip** is free for academic and training use (as defined in the license). For use with data generated in a clinical or commercial settings, please see https://genozip.com/commercial.html or contact **sales@genozip.com**   
   
 Usage is subject to terms and conditions. The license can be viewed on https://genozip.com/license.html  
   
-THIS SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS, COPYRIGHT HOLDERS OR DISTRIBUTORS OF THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+**THIS SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS, COPYRIGHT HOLDERS OR DISTRIBUTORS OF THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.**  
 
 Current build status
 ====================
