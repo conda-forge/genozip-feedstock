@@ -1,4 +1,4 @@
-{% set version = "13.0.5" %}
+{% set version = "13.0.6" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: be2d5cbe1f5f84c2dc1a1d580361fc7f22a14ece4dac545ca2750ca07d49fac3
+  sha256: 9b7967f722cfc4f711f75bba75d2e3db0bee1975eabeee27dd9eee80c1a1b126
  
 build:
   skip: True  # [win]
@@ -51,27 +51,17 @@ about:
     
     Genozip
     
-    Genozip is also available on Conda. For additional installation options, See: https://genozip.com
+    Genozip is also available on Conda and binary downloads. For additional installation options, See: https://genozip.com
     
-    Genozip is a compressor for genomic files - while it can compress any file (i.e. not only genomic files), it is optimized to compress FASTQ, BAM, CRAM, VCF, FASTA, GVF, PHYLIP, Chain, Kraken and 23andMe files.
+    Genozip is a universal compressor for genomic files - it compresses FASTQ, BAM/CRAM, VCF and many other file formats (including non-genomic files) - see https://genozip.com
     
-    Citing Do you find Genozip useful? Please cite:
+    For Illumina data .bam and .fastq.gz files, the typical gain over gzip is around 4X. For PacBio and Oxford Nanopore data aligned .bam files, the gain is typically around 2X. For .vcf.gz files, the gain over gzip is typically 3-6X. Here are some examples: https://genozip.com/benchmarks.html.
     
-    Lan, D., et al. (2021) Genozip: a universal extensible genomic data compressor. Bioinformatics, 37, 2225-2230, https://doi.org/10.1093/bioinformatics/btab102
-    
-    Lan, D., et al. (2020) genozip: a fast and efficient compression tool for VCF files Bioinformatics, 36, 4091–4092, https://doi.org/10.1093/bioinformatics/btaa290
-    
-     
-    Typically, a 2X-5X improvement over the existing compression is achieved when compressing already-compressed files like .fastq.gz .bam vcf.gz and much higher ratios in some other cases. 
-     
     Yes, Genozip can compress already-compressed files (.gz .bz2 .xz .bam .cram). 
      
     The compression is lossless - the decompressed file is 100% identical to the original file (see documentation for exceptions). 
-    Sign up to receive low-frequency updates related to Genozip: https://tinyurl.com/genozip
     
-    The command line options are similar to gzip and samtools/bcftools, so if you are familiar with these, it works pretty much the same. To get started, see: https://genozip.com
-    
-    Genozip is free for non-commercial use (as defined in the license). For a commercial license, please contact sales@genozip.com 
+    Genozip is free for academic and training use (as defined in the license). For use with data generated in a clinical or commercial settings, please see https://genozip.com/commercial.html or contact sales@genozip.com 
     
     Usage is subject to terms and conditions. The license can be viewed on https://genozip.com/license.html
     
