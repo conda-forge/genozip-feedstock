@@ -1,4 +1,4 @@
-{% set version = "13.0.12" %}
+{% set version = "13.0.13" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: c4d306a344fdc93d8138596b26b6915b7cad27a302cc68011907eba0334b45be
+  sha256: 580f7845cb3c8324f2259438c66ddd5e5748687ccd189380472534f9f56aeacf
  
 build:
   skip: True  # [win]
@@ -53,7 +53,7 @@ about:
     
     Genozip is also available on Conda and binary downloads. For additional installation options, See: https://genozip.com
     
-    Genozip is a universal compressor for genomic files - it compresses FASTQ, BAM/CRAM, VCF and many other file formats (including non-genomic files) - see https://genozip.com
+    Genozip is a compressor for BAM, FASTQ, VCF and other genomic files - see https://genozip.com
     
     For Illumina data .bam and .fastq.gz files, the typical gain over gzip is around 4X. For PacBio and Oxford Nanopore data aligned .bam files, the gain is typically around 2X. For .vcf.gz files, the gain over gzip is typically 3-6X. Here are some examples: https://genozip.com/benchmarks.html.
     
