@@ -1,4 +1,4 @@
-{% set version = "14.0.1" %}
+{% set version = "14.0.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -48,7 +48,6 @@ about:
     - LICENSE.txt
   summary: Compressor for genomic files (FASTQ, BAM, VCF, FASTA and more), up to 5x better than gzip and faster too
   description: |
-    
     Genozip
     
     Genozip is also available on Conda and binary downloads. For additional installation options, See: https://genozip.com
