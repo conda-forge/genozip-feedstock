@@ -7,14 +7,10 @@ Package license: CUSTOM
 
 Feedstock license: BSD 3-Clause
 
-Summary: Compressor for VCF genomic files, up to 5x better than gzip and faster too
+Summary: Compressor for genomic files (FASTQ, BAM, VCF etc). 
 
-genozip is a compressor for VCF genomic files (it compresses .vcf or .vcf.gz or .vcf.bz2 files).
-It is very easy to use - in fact, if you're familiar with gzip, it works pretty much the same.
-It achieves x2 to x5 better compression ratios than gzip because it leverages some properties
-of the genomic data, such as linkage disequilibrium, to compress better.
-It is also a lot faster than gzip.
-The compression is lossless - the decompressed file is identical to the original file.
+See https://genozip.com
+
 Contact: info@genozip.com
 
 
