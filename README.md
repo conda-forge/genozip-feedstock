@@ -11,7 +11,7 @@ Summary: Compressor for genomic files (FASTQ, BAM, VCF etc).
 
 See https://genozip.com
 
-Contact: info@genozip.com
+Contact: support@genozip.com
 
 
 Current build status
