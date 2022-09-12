@@ -1,4 +1,4 @@
-{% set version = "13.0.21" %}
+{% set version = "14.0.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,23 +8,23 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 9555e0c71abeaf17502aac9796e745ee65fe7d34ca17c5ee48250cf897199dd0
- 
+  sha256: 87d4bead4d3c513d694cb3ff8958cac38b034d69347fbcfc5d1a09ba7b940916
+
 build:
-  skip: True  # [win]
+  skip: true  # [win]
   number: 0
 
 requirements:
-  build:    
+  build:
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
-    - {{posix}}make
-    - {{posix}}sed               # [win]
-    - {{posix}}coreutils         # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
   host:
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
   run:
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
     - curl
 
 test:
@@ -44,27 +44,27 @@ about:
   doc_url: https://genozip.com
   license: CUSTOM
   license_family: OTHER
-  license_file: 
+  license_file:
     - LICENSE.txt
   summary: Compressor for genomic files (FASTQ, BAM, VCF, FASTA and more), up to 5x better than gzip and faster too
-  description: |
-    
+  description: |4
+
     Genozip
-    
+
     Genozip is also available on Conda and binary downloads. For additional installation options, See: https://genozip.com
-    
+
     Genozip is a compressor for BAM, FASTQ, VCF and other genomic files - see https://genozip.com
-    
+
     For Illumina data .bam and .fastq.gz files, the typical gain over gzip is around 4X. For PacBio and Oxford Nanopore data aligned .bam files, the gain is typically around 2X. For .vcf.gz files, the gain over gzip is typically 3-6X. Here are some examples: https://genozip.com/benchmarks.html.
-    
+
     Yes, Genozip can compress already-compressed files (.gz .bz2 .xz .bam .cram). 
      
     The compression is lossless - the decompressed file is 100% identical to the original file (see documentation for exceptions). 
-    
+
     Genozip is free for academic and training use (as defined in the license). For use with data generated in a clinical or commercial settings, please see https://genozip.com/commercial.html or contact sales@genozip.com 
-    
+
     Usage is subject to terms and conditions. The license can be viewed on https://genozip.com/license.html
-    
+
     THIS SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS, COPYRIGHT HOLDERS OR DISTRIBUTORS OF THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 extra:
