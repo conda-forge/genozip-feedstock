@@ -57,20 +57,26 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-genozip-green.svg)](https://anaconda.org/conda-forge/genozip) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/genozip.svg)](https://anaconda.org/conda-forge/genozip) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/genozip.svg)](https://anaconda.org/conda-forge/genozip) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/genozip.svg)](https://anaconda.org/conda-forge/genozip) |
 
-About Genozip
-=============
+Installing genozip
+==================
 
-Home: https://github.com/divonlan/genozip
+Installing `genozip` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
-Package license: CUSTOM
+```
+conda config --add channels conda-forge
+```
 
-Feedstock license: BSD 3-Clause
+Once the `conda-forge` channel has been enabled, `genozip` can be installed with:
 
-Summary: Compressor for genomic files (FASTQ, BAM, VCF etc).
+```
+conda install genozip
+```
 
-See https://genozip.com
+It is possible to list all of the versions of `genozip` available on your platform with:
 
-Contact: support@genozip.com
+```
+conda search genozip --channel conda-forge
+```
 
 Feedstock Maintainers
 =====================
