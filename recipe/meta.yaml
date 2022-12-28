@@ -1,4 +1,4 @@
-{% set version = "14.0.19" %}
+{% set version = "14.0.21" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: e54d082ebd54ac06e9bdfa90e7f568ae4bb3a5656ca957a56f215947acead86f
+  sha256: 175cce4ef6bab47905deab569af72e1c81f9c21ea9a1a594bd090a46e9dbfb09
  
 build:
   skip: True  # [win]
@@ -48,24 +48,6 @@ about:
     - LICENSE.txt
   summary: Compressor for genomic files (FASTQ, BAM, VCF, FASTA and more), up to 5x better than gzip and faster too
   description: |
-    
-    Genozip
-    
-    Genozip is a compressor for BAM / SAM / CRAM, FASTQ, VCF and <a href="https://www.genozip.com/compression">other genomic files - see https://genozip.com
-    
-    Genozip is also available on Conda and binary downloads, see <a href="https://genozip.com/installing">installation options.
-    
-    For Illumina data .bam and .fastq.gz files, the typical gain over gzip is around 4X. For PacBio and Oxford Nanopore data aligned .bam files, the gain is typically around 2X. For .vcf.gz files, the gain over gzip is typically 3-6X. Here are some <a href="https://genozip.com/benchmarks">benchmarks.
-    
-    Yes, Genozip can compress already-compressed files (.gz .bz2 .xz .bam .cram). 
-     
-    The compression is <a href="https://genozip.com/losslessness">lossless - the decompressed file is 100% identical to the original file (see documentation for exceptions), verifiable by MD5.
-    
-    Genozip is free for certain academic research use. See <a href="https://genozip.com/get-genozip">eligibility and other licensing options or contact <a href="mailto://sales@genozip.com">sales@genozip.com 
-    
-    Usage is subject to terms and conditions. See our <a href="https://genozip.com/license">license for details.
-    
-    THIS SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS, COPYRIGHT HOLDERS OR DISTRIBUTORS OF THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 extra:
   recipe-maintainers:
