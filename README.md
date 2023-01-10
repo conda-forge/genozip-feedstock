@@ -1,23 +1,4 @@
 
-Genozip
-=======  
-  
-**Genozip** is a compressor for BAM / SAM / CRAM, FASTQ, VCF and <a href="https://www.genozip.com/compression">other genomic files</a> - see https://genozip.com  
-  
-Genozip is also available on **Conda** and binary downloads, see <a href="https://genozip.com/installing">installation options</a>.  
-  
-For Illumina data *.bam* and *.fastq.gz* files, the typical gain over gzip is around 4X. For PacBio and Oxford Nanopore data aligned *.bam* files, the gain is typically around 2X. For *.vcf.gz* files, the gain over gzip is typically 3-6X. Here are some <a href="https://genozip.com/benchmarks">benchmarks</a>.  
-  
-**Yes**, Genozip can compress already-compressed files (.gz .bz2 .xz .bam .cram).<br> 
-<br> 
-The compression is <a href="https://genozip.com/losslessness">lossless</a> - the decompressed file is 100% identical to the original file (see documentation for exceptions), verifiable by MD5.  
-  
-**Genozip** is free for certain academic research use. See <a href="https://genozip.com/get-genozip">eligibility and other licensing options</a> or contact <a href="mailto://sales@genozip.com">sales@genozip.com</a>   
-  
-Usage is subject to terms and conditions. See our <a href="https://genozip.com/license">license</a> for details.  
-  
-**THIS SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS, COPYRIGHT HOLDERS OR DISTRIBUTORS OF THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.**  
-
 Current build status
 ====================
 
