@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: f8673ffab96aaebad6ad837e7c75ebb885c4e6cde41497ee6a5ec88c5e8c699e
+  url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz<<<<<<< genozip
+  sha256: 0c1a9cef0259a0424a5d27949f37aa37d17c438b9ee7f6ba10c8033222327edd
  
 build:
   skip: True  # [win]
