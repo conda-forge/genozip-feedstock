@@ -1,4 +1,4 @@
-{% set version = "14.0.30" %}
+{% set version = "14.0.31" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: f84a7166b0671891dada11b1619c97a647d0fc51954a487be0a5fa47f0914456
+  sha256: c9f299e4a7321ea24339cde98116bd3fde5efc2724a708515b644f71def03e13
  
 build:
   skip: True  # [win]
