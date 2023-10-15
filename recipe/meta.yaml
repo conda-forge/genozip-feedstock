@@ -1,4 +1,4 @@
-{% set version = "15.0.18" %}
+{% set version = "15.0.19" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,23 +8,23 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: bde5f22b32a0b6cc562408e2061881b039ed2cdf61d6122d6b0a287bb19d73b5
+  sha256: f7ed5e28dedff597765d7ce66204c6e0d73a6fc2a2bb962aa654f04b492ac4b2
 
 build:
-  skip: true  # [win]
+  skip: True  # [win]
   number: 0
 
 requirements:
-  build:
+  build:    
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
-    - {{ posix }}make
-    - {{ posix }}sed               # [win]
-    - {{ posix }}coreutils         # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
   host:
-    - {{ native }}gcc-libs         # [win]
+    - {{native}}gcc-libs         # [win]
   run:
-    - {{ native }}gcc-libs         # [win]
+    - {{native}}gcc-libs         # [win]
     - curl
 
 test:
@@ -44,7 +44,7 @@ about:
   doc_url: https://genozip.com
   license: CUSTOM
   license_family: OTHER
-  license_file:
+  license_file: 
     - LICENSE.txt
   summary: Compressor for genomic files (FASTQ, BAM, VCF, FASTA and more), up to 5x better than gzip and faster too
   description: |
