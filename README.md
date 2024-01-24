@@ -16,7 +16,7 @@ Building from source: make (requires gcc 8.5 or above).
 
 **Genozip** Genozip is a commercial product, but we make it free for certain academic research use. See <a href="https://genozip.com/get-genozip">eligibility and other licensing options</a> or contact <a href="mailto://sales@genozip.com">sales@genozip.com</a>   
   
-**IMPORTANT**: Genozip is a commercial product, **NOT AN OPEN SOURCE** product - we provide our source code to assure users that they will always have access to the code needed to decompress their files. **HOWEVER**, reverse engineering, code modifications, derivative works or inclusion of the code or parts thereof into other software packages is strictly forbidden by the <a href="https://genozip.com/license">license</a> (see <a href="https://genozip.com/licensing-faq">FAQ</a>).  
+**IMPORTANT**: Genozip is a commercial product, **NOT AN OPEN SOURCE** product - we provide our source code to assure users that they will always have access to the code needed to decompress their files. **HOWEVER**, reverse engineering, code modifications, derivative works or inclusion of the code or parts thereof into other software packages is strictly forbidden by the <a href="https://genozip.com/license">license</a>.  
   
 Attributions for 3rd party source components: <a href="https://genozip.com/attributions">attributions</a>.  
   
