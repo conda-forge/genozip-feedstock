@@ -1,17 +1,28 @@
 About genozip-feedstock
 =======================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/genozip-feedstock/blob/main/LICENSE.txt)
+[![Current Release](https://img.shields.io/github/v/release/divonlan/genozip "Current Release")](https://github.com/divonlan/genozip/releases/latest) [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/genozip?label=Conda%20Downloads&style=flat-square)](https://anaconda.org/conda-forge/genozip)
 
-Home: https://genozip.com
+Genozip
+=======  
+  
+**Genozip** is a lossless compressor for  FASTQ, BAM/CRAM, VCF and <a href="https://www.genozip.com/compression">many other genomic files</a> - see https://genozip.com  
+  
+Genozip is also available on **Conda** and binary downloads, see <a href="https://genozip.com/installing">installation options</a>.  
+  
+Building from source: make (requires gcc 8.5 or above).  
+  
+<h2>New: <a href="https://genozip.com">Genozip 15</a> - with Deep™ - losslessly co-compressing BAM and FASTQ files:</h2>
 
-Package license: CUSTOM
+![v15 deep benchmark](https://github.com/divonlan/genozip/assets/56345591/39c7e9c5-135d-49c9-9213-89d4b830842a)
 
-Summary: Compressor for genomic files (FASTQ, BAM, VCF, FASTA and more), up to 5x better than gzip and faster too
-
-Development: https://github.com/divonlan/genozip
-
-Documentation: https://genozip.com
+**Genozip** Genozip is a commercial product, but we make it free for certain academic research use. See <a href="https://genozip.com/get-genozip">eligibility and other licensing options</a> or contact <a href="mailto://sales@genozip.com">sales@genozip.com</a>   
+  
+**IMPORTANT**: Genozip is a commercial product, **NOT AN OPEN SOURCE** product - we provide our source code to assure users that they will always have access to the code needed to decompress their files. **HOWEVER**, reverse engineering, code modifications, derivative works or inclusion of the code or parts thereof into other software packages is strictly forbidden by the <a href="https://genozip.com/license">license</a>.  
+  
+Attributions for 3rd party source components: <a href="https://genozip.com/attributions">attributions</a>.  
+  
+**THIS SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS, COPYRIGHT HOLDERS OR DISTRIBUTORS OF THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.**  
 
 Current build status
 ====================
