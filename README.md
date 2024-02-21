@@ -8,7 +8,7 @@ Genozip
   
 Genozip is also available on **Conda** and binary downloads, see <a href="https://genozip.com/installing">installation options</a>.  
   
-Building from source: make (requires gcc 8.5 or above).  
+Building from source: make -j (prerequisitves: gcc 8.5 or above ; nasm).  
   
 <h2>New: <a href="https://genozip.com">Genozip 15</a> - with Deep™ - losslessly co-compressing BAM and FASTQ files:</h2>
 
