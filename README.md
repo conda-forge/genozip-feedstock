@@ -1,4 +1,3 @@
-
 [![Current Release](https://img.shields.io/github/v/release/divonlan/genozip "Current Release")](https://github.com/divonlan/genozip/releases/latest) [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/genozip?label=Conda%20Downloads&style=flat-square)](https://anaconda.org/conda-forge/genozip)
 
 Genozip
