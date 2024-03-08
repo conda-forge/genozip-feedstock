@@ -16,18 +16,18 @@ build:
   number: 0
 
 requirements:
-  build:    
-    - {{posix}}make
+  build:
+    - {{ posix }}make
     - nasm
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('cxx') }}      # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
-    - {{posix}}sed               # [win]
-    - {{posix}}coreutils         # [win]
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
   host:
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
   run:
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
     - curl
 
 test:
@@ -41,7 +41,7 @@ about:
   doc_url: https://genozip.com
   license: CUSTOM
   license_family: OTHER
-  license_file: 
+  license_file:
     - LICENSE.txt
   summary: Compressor for genomic files (FASTQ, BAM, VCF, FASTA and more), up to 5x better than gzip and faster too
   description: |
