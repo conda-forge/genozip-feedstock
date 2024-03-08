@@ -181,4 +181,3 @@ Feedstock Maintainers
 =====================
 
 * [@divonlan](https://github.com/divonlan/)
-
