@@ -1,4 +1,3 @@
-
 [![Current Release](https://img.shields.io/github/v/release/divonlan/genozip "Current Release")](https://github.com/divonlan/genozip/releases/latest) [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/genozip?label=Conda%20Downloads&style=flat-square)](https://anaconda.org/conda-forge/genozip)
 
 Genozip
@@ -21,13 +20,27 @@ Building from source: make -j (required for building: gcc 8.5 or above ; nasm).<
 Attributions for 3rd party source components: <a href="https://genozip.com/attributions">attributions</a>.<br>
 <br>
 **THIS SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS, COPYRIGHT HOLDERS OR DISTRIBUTORS OF THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.**<br>
+=======
+About genozip-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/genozip-feedstock/blob/main/LICENSE.txt)
+
+Home: https://genozip.com
+
+Package license: CUSTOM
+
+Summary: Compressor for genomic files (FASTQ, BAM, VCF, FASTA and more), up to 5x better than gzip and faster too
+
+Development: https://github.com/divonlan/genozip
+
+Documentation: https://genozip.com
 
 Current build status
 ====================
 
 
 <table>
-
   <tr>
     <td>Azure</td>
     <td>
@@ -105,3 +118,4 @@ Feedstock Maintainers
 =====================
 
 * [@divonlan](https://github.com/divonlan/ divon@genozip.com)
+
