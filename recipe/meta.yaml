@@ -1,4 +1,4 @@
-{% set version = "15.0.50" %}
+{% set version = "15.0.51" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -9,25 +9,26 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 9011870e80d0e2c1b72391b34b817a9bd6079e92a29ac7f0a17de8402aa4377d
+  sha256: 3aea593223547b903e8f7d969706c750a50901b8690a4f3fdd178dc8ccb6f37d
  
 build:
-  skip: True  # [win]
+  # Selector (e.g [win]) list: https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#preprocessing-selectors
+  # skip: True  # [win]
   number: 0
 
 requirements:
-  build:
-    - {{ posix }}make
+  build:    
+    - {{posix}}make
     - nasm
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('cxx') }}      # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
-    - {{ posix }}sed               # [win]
-    - {{ posix }}coreutils         # [win]
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
   host:
-    - {{ native }}gcc-libs         # [win]
+    - {{native}}gcc-libs         # [win]
   run:
-    - {{ native }}gcc-libs         # [win]
+    - {{native}}gcc-libs         # [win]
     - curl
 
 test:
@@ -41,7 +42,7 @@ about:
   doc_url: https://genozip.com
   license: CUSTOM
   license_family: OTHER
-  license_file:
+  license_file: 
     - LICENSE.txt
   summary: Compressor for genomic files (FASTQ, BAM, VCF, FASTA and more), up to 5x better than gzip and faster too
   description: |
