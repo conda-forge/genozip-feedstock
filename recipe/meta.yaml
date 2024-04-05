@@ -1,4 +1,4 @@
-{% set version = "15.0.50" %}
+{% set version = "15.0.55" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -9,25 +9,27 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 9011870e80d0e2c1b72391b34b817a9bd6079e92a29ac7f0a17de8402aa4377d
+  sha256: 08686e521425750ac2896a3e38ebe8b39ef1552d9b3c18a9b6f7106a78b65f21
  
 build:
+  # Selector (e.g [win]) list: https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#preprocessing-selectors
+  # Windows builds & tests successfully, but then the test fails in Appveyor - it seems the executable is not loading (maybe missing gcc libraries? just a hunch)
   skip: True  # [win]
   number: 0
 
 requirements:
-  build:
-    - {{ posix }}make
+  build:    
+    - {{posix}}make
     - nasm
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('cxx') }}      # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
-    - {{ posix }}sed               # [win]
-    - {{ posix }}coreutils         # [win]
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
   host:
-    - {{ native }}gcc-libs         # [win]
+    - {{native}}gcc-libs         # [win]
   run:
-    - {{ native }}gcc-libs         # [win]
+    - {{native}}gcc-libs         # [win]
     - curl
 
 test:
@@ -41,7 +43,7 @@ about:
   doc_url: https://genozip.com
   license: CUSTOM
   license_family: OTHER
-  license_file:
+  license_file: 
     - LICENSE.txt
   summary: Compressor for genomic files (FASTQ, BAM, VCF, FASTA and more), up to 5x better than gzip and faster too
   description: |
