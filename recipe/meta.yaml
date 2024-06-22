@@ -1,4 +1,4 @@
- set version = "15.0.61" %}
+{% set version = "15.0.61" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -19,18 +19,18 @@ build:
 
 requirements:
   build:    
-    - {{posix}}make
+    - {{ posix }}make
     - nasm                       # [not arm64]
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('cxx') }}      # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
-    - {{posix}}sed               # [win]
-    - {{posix}}coreutils         # [win]
+    - {{ posix }}sed             # [win]
+    - {{ posix }}coreutils       # [win]
   host:
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs       # [win]
   run:
-    - {{native}}gcc-libs         # [win]
-    - curl
+    - {{ native }}gcc-libs       # [win]
+    - curl 
 
 test:
   commands:
