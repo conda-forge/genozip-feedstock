@@ -1,7 +1,6 @@
 {% set version = "15.0.65" %}
 
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: genozip
@@ -14,16 +13,19 @@ source:
 build:
   # Selector (e.g [win]) list: https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#preprocessing-selectors
   # Windows builds & tests successfully, but then the test fails in Appveyor - it seems the executable is not loading (maybe missing gcc libraries? just a hunch)
-  skip: True  # [win]
-  number: 0
+  # Checking windows to see if it passes. Uncomment the line if it fails.
+  # skip: True  # [win]
+  number: 1
 
 requirements:
   build:    
     - {{ posix }}make
     - nasm                       # [not arm64]
     - {{ compiler('c') }}        # [not win]
+    - {{ stdlib("c") }}          # [not win]
     - {{ compiler('cxx') }}      # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
+    - {{ stdlib("m2w64_c") }}    # [win]
     - {{ posix }}sed             # [win]
     - {{ posix }}coreutils       # [win]    
 
@@ -39,9 +41,7 @@ requirements:
     - 11.0                       # [osx and arm64]
   
   host:
-    - {{ native }}gcc-libs       # [win]
   run:
-    - {{ native }}gcc-libs       # [win]
     - curl
 
 test:
