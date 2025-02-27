@@ -1,4 +1,4 @@
-{% set version = "15.0.71" %}
+{% set version = "15.0.72" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 819a774b52ce325ec1b0aa7f52ad942da197cdbee897d936444d8cfedbcde387
+  sha256: 3e87ec5ca955dabf0acdde2fb76daf989a7302297561185170778759520ee4cd
  
 build:
   # Selector (e.g [win]) list: https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#preprocessing-selectors
