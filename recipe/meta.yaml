@@ -33,17 +33,15 @@ requirements:
     - {{ stdlib("m2w64_c") }}      # [win]    
     
   host:
-    - pthreads-win32             # [win]
         
   run:
-    - pthreads-win32             # [win]
-    - m2w64-gcc-libs        # [win]
+    - m2w64-gcc-libs               # [win]
     - curl
 
 test:
   commands:
-    - genozip --version          # [not win]
-    - genozip.exe --version      # [win]
+    - genozip --version            # [not win]
+    - genozip.exe --version        # [win]
 
 about:
   home: https://genozip.com
