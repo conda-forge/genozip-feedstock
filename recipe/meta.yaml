@@ -35,7 +35,7 @@ requirements:
   host:
         
   run:
-    - m2w64-gcc-libs               # [win]
+    - libwinpthread                # [win]
     - curl
 
 test:
