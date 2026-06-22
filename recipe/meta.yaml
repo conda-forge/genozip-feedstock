@@ -1,4 +1,4 @@
-{% set version = "15.0.85" %}
+{% set version = "15.0.86" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/divonlan/genozip/archive/genozip-{{ version }}.tar.gz
-  sha256: 9967629a72bcfae274216f3bbf26ed14aab5e58e1b3022a3fa8dd6a4b57692ae
+  sha256: 2b7c8c0dd1e86aabfdee60801963e764eafbd4a180eb673f6c11d3f7201d5a3b
  
 build:
   # Selector (e.g [win]) list: https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#preprocessing-selectors
@@ -68,7 +68,7 @@ about:
     
     ![v15 deep benchmark](https://github.com/divonlan/genozip/assets/56345591/39c7e9c5-135d-49c9-9213-89d4b830842a)
     
-    Genozip Genozip is a commercial product, but it is free for students. See <a href="https://genozip.com/academic">eligibility and <a href="https://genozip.com/get-genozip">other licensing options or contact <a href="mailto://sales@genozip.com">sales@genozip.com 
+    Genozip is a commercial product, but it is free for students. See <a href="https://genozip.com/academic">eligibility and <a href="https://genozip.com/get-genozip">other licensing options or contact <a href="mailto://sales@genozip.com">sales@genozip.com 
     
     IMPORTANT: Genozip is a commercial product, NOT AN OPEN SOURCE product - we provide our source code to assure users that they will always have access to the code needed to decompress their files. HOWEVER, forking, reverse engineering, code modifications, derivative works or inclusion of the code or parts thereof into other software packages is strictly forbidden by the <a href="https://genozip.com/license">license.
     
