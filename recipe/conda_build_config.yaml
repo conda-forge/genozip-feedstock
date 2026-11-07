@@ -1,0 +1,11 @@
+# need to re-render after changes
+
+c_compiler:          # [osx]
+  - clang            # [osx]
+c_compiler_version:  # [osx]
+  - 23               # [osx]
+
+cxx_compiler:        # [osx]
+  - clangxx          # [osx]
+cxx_compiler_version: # [osx]
+  - 23               # [osx]
